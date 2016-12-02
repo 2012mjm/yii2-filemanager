@@ -1,10 +1,10 @@
 <?php
 use dosamigos\fileupload\FileUploadUI;
-use pendalf89\filemanager\Module;
+use mjm\filemanager\Module;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $searchModel pendalf89\filemanager\models\Mediafile */
+/* @var $searchModel mjm\filemanager\models\Mediafile */
 
 ?>
 

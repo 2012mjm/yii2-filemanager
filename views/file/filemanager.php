@@ -1,8 +1,8 @@
 <?php
 
-use pendalf89\filemanager\assets\FilemanagerAsset;
-use pendalf89\filemanager\Module;
-use pendalf89\filemanager\models\Tag;
+use mjm\filemanager\assets\FilemanagerAsset;
+use mjm\filemanager\Module;
+use mjm\filemanager\models\Tag;
 use yii\helpers\ArrayHelper;
 use yii\widgets\ListView;
 use yii\helpers\Html;
@@ -10,7 +10,7 @@ use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $searchModel pendalf89\filemanager\models\MediafileSearch */
+/* @var $searchModel mjm\filemanager\models\MediafileSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 $this->params['moduleBundle'] = FilemanagerAsset::register($this);
 ?>

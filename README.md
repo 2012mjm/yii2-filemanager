@@ -36,20 +36,20 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist pendalf89/yii2-filemanager "1.2"
+php composer.phar require --prefer-dist mjm/yii2-filemanager "1.3"
 ```
 
 or add
 
 ```
-"pendalf89/yii2-filemanager": "1.2"
+"mjm/yii2-filemanager": "1.3"
 ```
 
 to the require section of your `composer.json` file.
 
 Apply migration
 ```sh
-yii migrate --migrationPath=vendor/pendalf89/yii2-filemanager/migrations
+yii migrate --migrationPath=vendor/mjm/yii2-filemanager/migrations
 ```
 
 Configuration:
@@ -57,7 +57,7 @@ Configuration:
 ```php
 'modules' => [
     'filemanager' => [
-        'class' => 'pendalf89\filemanager\Module',
+        'class' => 'mjm\filemanager\Module',
         'useUserOwner' => true,
         // Upload routes
         'routes' => [
@@ -111,7 +111,7 @@ Usage
 Simple standalone field:
 
 ```php
-use pendalf89\filemanager\widgets\FileInput;
+use mjm\filemanager\widgets\FileInput;
 
 echo $form->field($model, 'original_thumbnail')->widget(FileInput::className(), [
     'buttonTag' => 'button',
@@ -159,7 +159,7 @@ echo FileInput::widget([
 
 With TinyMCE:
 ```php
-use pendalf89\filemanager\widgets\TinyMCE;
+use mjm\filemanager\widgets\TinyMCE;
 
 <?= $form->field($model, 'content')->widget(TinyMCE::className(), [
     'clientOptions' => [
@@ -178,7 +178,7 @@ use pendalf89\filemanager\widgets\TinyMCE;
 In model you must set mediafile behavior like this example:
 
 ```php
-use pendalf89\filemanager\behaviors\MediafileBehavior;
+use mjm\filemanager\behaviors\MediafileBehavior;
 
 public function behaviors()
 {
@@ -198,7 +198,7 @@ Than, you may get mediafile from your owner model.
 See example:
 
 ```php
-use pendalf89\filemanager\models\Mediafile;
+use mjm\filemanager\models\Mediafile;
 
 $model = Post::findOne(1);
 $mediafile = Mediafile::loadOneByOwner('post', $model->id, 'thumbnail');

@@ -1,7 +1,7 @@
 <?php
 
-use pendalf89\filemanager\Module;
-use pendalf89\filemanager\models\Tag;
+use mjm\filemanager\Module;
+use mjm\filemanager\models\Tag;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;

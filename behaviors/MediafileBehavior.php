@@ -1,11 +1,11 @@
 <?php
-namespace pendalf89\filemanager\behaviors;
+namespace mjm\filemanager\behaviors;
 
 use yii;
 use yii\base\Behavior;
 use yii\db\ActiveRecord;
-use pendalf89\filemanager\models\Mediafile;
-use pendalf89\filemanager\models\Owners;
+use mjm\filemanager\models\Mediafile;
+use mjm\filemanager\models\Owners;
 
 class MediafileBehavior extends Behavior
 {
@@ -67,8 +67,8 @@ class MediafileBehavior extends Behavior
             Mediafile::removeOwner($this->owner->primaryKey, $this->name, $attr);
         }
     }
-    
-    
+
+
 
     /**
      * Load model by id
@@ -79,11 +79,11 @@ class MediafileBehavior extends Behavior
     {
         return Mediafile::findOne($id);
     }
-    
+
     /**
      * Возвращает ссылку на миниатюру, заданную через аргументы $attribute и $alias
      * @param string $alias Наименование миниатюры, задается в конфигурации filemanager
-     * @param bool|string $attribute Наименование атрибута (на случай, если в поведении 
+     * @param bool|string $attribute Наименование атрибута (на случай, если в поведении
      *                               казано несколько атрибутов)
      * @return bool|string Вернет false, если нет атрибутов или указанный не найден.
      */

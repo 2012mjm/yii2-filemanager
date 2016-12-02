@@ -3,12 +3,12 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
-use pendalf89\filemanager\assets\FilemanagerAsset;
-use pendalf89\filemanager\Module;
-use pendalf89\filemanager\models\Tag;
+use mjm\filemanager\assets\FilemanagerAsset;
+use mjm\filemanager\Module;
+use mjm\filemanager\models\Tag;
 
 /* @var $this yii\web\View */
-/* @var $model pendalf89\filemanager\models\Mediafile */
+/* @var $model mjm\filemanager\models\Mediafile */
 /* @var $form yii\widgets\ActiveForm */
 
 $bundle = FilemanagerAsset::register($this);

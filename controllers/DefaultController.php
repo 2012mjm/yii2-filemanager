@@ -1,6 +1,6 @@
 <?php
 
-namespace pendalf89\filemanager\controllers;
+namespace mjm\filemanager\controllers;
 
 use Yii;
 use yii\web\Controller;
@@ -21,7 +21,7 @@ class DefaultController extends Controller
     if($this->module->useUserOwner AND Yii::$app->user->id != 1) {
       throw new \yii\web\ForbiddenHttpException()
     }
-    
+
     return $this->render('settings');
   }
 }
