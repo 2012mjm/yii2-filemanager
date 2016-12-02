@@ -7,13 +7,21 @@ use yii\web\Controller;
 
 class DefaultController extends Controller
 {
-    public function actionIndex()
-    {
-        return $this->render('index');
+  public function actionIndex()
+  {
+    if($this->module->useUserOwner AND Yii::$app->user->id != 1) {
+      throw new \yii\web\ForbiddenHttpException()
     }
 
-    public function actionSettings()
-    {
-        return $this->render('settings');
+    return $this->render('index');
+  }
+
+  public function actionSettings()
+  {
+    if($this->module->useUserOwner AND Yii::$app->user->id != 1) {
+      throw new \yii\web\ForbiddenHttpException()
     }
+    
+    return $this->render('settings');
+  }
 }

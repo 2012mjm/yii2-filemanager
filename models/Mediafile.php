@@ -378,7 +378,7 @@ class Mediafile extends ActiveRecord
             $width = $size[0];
             $height = $size[1];
 
-            return "$dirname/" . $this->getThumbFilename($filename, $extension, Module::DEFAULT_THUMB_ALIAS, $width, $height);
+            return Url::base()."$dirname/" . $this->getThumbFilename($filename, $extension, Module::DEFAULT_THUMB_ALIAS, $width, $height);
         }
         return "$baseUrl/images/file.png";
     }
@@ -397,7 +397,7 @@ class Mediafile extends ActiveRecord
         $width = $size[0];
         $height = $size[1];
 
-        return "$dirname/" . $this->getThumbFilename($filename, $extension, Module::DEFAULT_THUMB_ALIAS, $width, $height);
+        return Url::base()."$dirname/" . $this->getThumbFilename($filename, $extension, Module::DEFAULT_THUMB_ALIAS, $width, $height);
     }
 
 	/**
@@ -501,7 +501,7 @@ class Mediafile extends ActiveRecord
             	unlink("$basePath/$thumbUrl");
             }
         }
-        
+
         $defaultThumbPath = "$basePath/{$this->getDefaultThumbUrl()}";
         if(is_file($defaultThumbPath)) {
             unlink($defaultThumbPath);
@@ -579,6 +579,18 @@ class Mediafile extends ActiveRecord
     public static function findByTypes(array $types)
     {
         return self::find()->filterWhere(['in', 'type', $types])->all();
+    }
+
+    /**
+     * Search models by file types
+     * @param array $types file types
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function findByTypesAndUser(array $types, $userId)
+    {
+        return self::find()->filterWhere(['in', 'type', $types])
+          ->joinWith('owners')->andWhere([Owners::tableName() . '.owner_id' => $userId, Owners::tableName() . '.owner' => 'user'])
+          ->all();
     }
 
     public static function loadOneByOwner($owner, $owner_id, $owner_attribute)

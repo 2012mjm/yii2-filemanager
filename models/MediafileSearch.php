@@ -54,4 +54,33 @@ class MediafileSearch extends Mediafile
 
         return $dataProvider;
     }
+
+    /**
+     * Creates data provider instance with search query applied
+     * @param array $params
+     * @param int $userId
+     * @return ActiveDataProvider
+     */
+    public function searchByUser($params, $userId)
+    {
+        $query = self::find()->orderBy('created_at DESC');
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        $this->load($params);
+
+    		$query->joinWith('owners')->andWhere([Owners::tableName() . '.owner_id' => $userId, Owners::tableName() . '.owner' => 'user']);
+
+        if (!$this->validate()) {
+            return $dataProvider;
+        }
+
+        if ($this->tagIds) {
+            $query->joinWith('tags')->andFilterWhere(['in', Tag::tableName() . '.id', $this->tagIds]);
+        }
+
+        return $dataProvider;
+    }
 }
