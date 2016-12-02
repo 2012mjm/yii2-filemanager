@@ -13,6 +13,7 @@ use yii\helpers\Inflector;
 use mjm\filemanager\Module;
 use mjm\filemanager\models\Owners;
 use Imagine\Image\ImageInterface;
+use yii\helpers\Url;
 
 /**
  * This is the model class for table "filemanager_mediafile".
