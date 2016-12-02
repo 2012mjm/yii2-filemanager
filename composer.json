@@ -7,9 +7,13 @@
         {
             "name": "PendalF",
             "email": "pendalf@mail.ru"
+        },
+        {
+            "name": "Mohammad Javad Masoudian",
+            "email": "info@mjm3d.ir"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable" : true,
     "require": {
         "yiisoft/yii2": "*",

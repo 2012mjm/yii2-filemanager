@@ -36,13 +36,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist pendalf89/yii2-filemanager "1.1"
+php composer.phar require --prefer-dist pendalf89/yii2-filemanager "1.2"
 ```
 
 or add
 
 ```
-"pendalf89/yii2-filemanager": "1.1"
+"pendalf89/yii2-filemanager": "1.2"
 ```
 
 to the require section of your `composer.json` file.
