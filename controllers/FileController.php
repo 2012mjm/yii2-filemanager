@@ -119,7 +119,7 @@ class FileController extends Controller
     }
 
     $response['files'][] = [
-      'url'           => $model->url,
+      'url'           => Url::base().$model->url,
       'thumbnailUrl'  => $model->getDefaultThumbUrl($bundle->baseUrl),
       'name'          => $model->filename,
       'type'          => $model->type,

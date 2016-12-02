@@ -448,7 +448,7 @@ class Mediafile extends ActiveRecord
         $thumbs = $this->getThumbs();
 
         if ($alias === 'original') {
-            return $this->url;
+            return Url::base().$this->url;
         }
 
         return !empty($thumbs[$alias]) ? $thumbs[$alias] : '';
@@ -485,11 +485,11 @@ class Mediafile extends ActiveRecord
         $thumbs = $this->getThumbs();
         $list = [];
         $originalImageSize = $this->getOriginalImageSize($module->routes);
-        $list[$this->url] = Module::t('main', 'Original') . ' ' . $originalImageSize;
+        $list[Url::base().$this->url] = Module::t('main', 'Original') . ' ' . $originalImageSize;
 
         foreach ($thumbs as $alias => $url) {
             $preset = $module->thumbs[$alias];
-            $list[$url] = $preset['name'] . ' ' . $preset['size'][0] . ' × ' . $preset['size'][1];
+            $list[Url::base().$url] = $preset['name'] . ' ' . $preset['size'][0] . ' × ' . $preset['size'][1];
         }
         return $list;
     }
