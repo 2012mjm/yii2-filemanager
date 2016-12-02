@@ -11,6 +11,7 @@ use mjm\filemanager\Module;
 use mjm\filemanager\models\Mediafile;
 use mjm\filemanager\assets\FilemanagerAsset;
 use yii\helpers\Url;
+use mjm\filemanager\models\Owners;
 
 class FileController extends Controller
 {
