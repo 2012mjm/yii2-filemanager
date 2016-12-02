@@ -6,10 +6,12 @@ Features
 ------------
 * Integrated with TinyMCE editor.
 * Automatically create actually directory for uploaded files like "2014/12".
+* Automatically create actually directory for uploaded files like "2014/12/user12" IF useUserOwner is true in module (12 is userId)
 * Automatically create thumbs for uploaded images
 * Unlimited number of sets of miniatures
 * All media files are stored in a database that allows you to attach to your object does not link to the image, and the id of the media file. This provides greater flexibility since in the future will be easy to change the size of thumbnails.
 * If your change thumbs sizes, your may resize all existing thumbs in settings.
+* If your change useUserOwner attribute to true in module, file manager and upload limited to user login
 
 Screenshots
 ------------
@@ -34,13 +36,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist pendalf89/yii2-filemanager "*"
+php composer.phar require --prefer-dist pendalf89/yii2-filemanager "1.1"
 ```
 
 or add
 
 ```
-"pendalf89/yii2-filemanager": "*"
+"pendalf89/yii2-filemanager": "1.1"
 ```
 
 to the require section of your `composer.json` file.
@@ -56,6 +58,7 @@ Configuration:
 'modules' => [
     'filemanager' => [
         'class' => 'pendalf89\filemanager\Module',
+        'useUserOwner' => true,
         // Upload routes
         'routes' => [
             // Base absolute path to web directory
@@ -160,7 +163,7 @@ use pendalf89\filemanager\widgets\TinyMCE;
 
 <?= $form->field($model, 'content')->widget(TinyMCE::className(), [
     'clientOptions' => [
-           'language' => 'ru',
+           'language' => 'fa_IR',
         'menubar' => false,
         'height' => 500,
         'image_dimensions' => false,

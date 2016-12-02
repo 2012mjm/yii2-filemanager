@@ -98,7 +98,14 @@ class FileController extends Controller
       $model->setTagIds(explode(',', $tagIds));
     }
 
-    $model->saveUploadedFile($routes, $rename);
+    if($this->module->useUserOwner) {
+      $userId = Yii::$app->user->id;
+      $model->saveUploadedFile($routes, $rename, $userId);
+    }
+    else {
+      $model->saveUploadedFile($routes, $rename);
+    }
+
     $bundle = FilemanagerAsset::register($this->view);
 
     if ($model->isImage()) {

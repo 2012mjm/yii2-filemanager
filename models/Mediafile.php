@@ -212,11 +212,16 @@ class Mediafile extends ActiveRecord
      * @param bool $rename
      * @return bool
      */
-    public function saveUploadedFile(array $routes, $rename = false)
+    public function saveUploadedFile(array $routes, $rename = false, $userId = null)
     {
         $year = date('Y', time());
         $month = date('m', time());
         $structure = "$routes[baseUrl]/$routes[uploadPath]/$year/$month";
+
+        if($userId != null) {
+          $structure .= "/user".$userId;
+        }
+
         $basePath = Yii::getAlias($routes['basePath']);
         $absolutePath = "$basePath/$structure";
 
