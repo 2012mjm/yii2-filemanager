@@ -103,6 +103,11 @@ class FileInput extends InputWidget
      * @var array widget html options
      */
     public $options = ['class' => 'form-control'];
+
+    /**
+     * @var image | video
+     */
+    public $type = null;
     
     /**
      *

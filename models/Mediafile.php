@@ -448,7 +448,7 @@ class Mediafile extends ActiveRecord
         $thumbs = $this->getThumbs();
 
         if ($alias === 'original') {
-            return $this->url;
+            return Url::base().$this->url;
         }
 
         return !empty($thumbs[$alias]) ? $thumbs[$alias] : '';
