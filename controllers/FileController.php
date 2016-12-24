@@ -62,10 +62,10 @@ class FileController extends Controller
 
     if($this->module->useUserOwner) {
       $userId = Yii::$app->user->id;
-      $dataProvider = $model->searchByUser(Yii::$app->request->queryParams, $userId);
+      $dataProvider = $model->searchByUser(Yii::$app->request->queryParams, $userId, Yii::$app->request->get('type'));
     }
     else {
-      $dataProvider = $model->search(Yii::$app->request->queryParams);
+      $dataProvider = $model->search(Yii::$app->request->queryParams, Yii::$app->request->get('type'));
     }
 
     $dataProvider->pagination->defaultPageSize = 15;
@@ -119,7 +119,7 @@ class FileController extends Controller
     }
 
     $response['files'][] = [
-      'url'           => $model->url,
+      'url'           => Url::base().$model->url,
       'thumbnailUrl'  => $model->getDefaultThumbUrl($bundle->baseUrl),
       'name'          => $model->filename,
       'type'          => $model->type,

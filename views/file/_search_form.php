@@ -9,6 +9,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $this yii\web\View */
 ?>
 <?php $form = ActiveForm::begin(['action' => '?', 'method' => 'get']) ?>
+	<?= Html::hiddenInput('type', \Yii::$app->request->get('type')); ?>
 	<?= $form->field($model, 'tagIds')->widget(\kartik\select2\Select2::className(), [
 		'maintainOrder' => true,
 		'data' => ArrayHelper::map(Tag::find()->all(), 'id', 'name'),

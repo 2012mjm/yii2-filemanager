@@ -6,6 +6,7 @@ use yii\helpers\ArrayHelper;
 use mjm\filemanager\assets\FilemanagerAsset;
 use mjm\filemanager\Module;
 use mjm\filemanager\models\Tag;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model mjm\filemanager\models\Mediafile */
@@ -75,7 +76,7 @@ $bundle = FilemanagerAsset::register($this);
             <div class="help-block"></div>
         </div>
     <?php else : ?>
-        <?= Html::hiddenInput('url', $model->url) ?>
+        <?= Html::hiddenInput('url', Url::base().$model->url) ?>
     <?php endif; ?>
 
     <?= Html::hiddenInput('id', $model->id) ?>

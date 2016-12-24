@@ -34,9 +34,13 @@ class MediafileSearch extends Mediafile
      * @param array $params
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $type)
     {
         $query = self::find()->orderBy('created_at DESC');
+        
+        if($type) {
+        	$query->filterWhere(['like', 'type', $type]);
+        }
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -61,9 +65,13 @@ class MediafileSearch extends Mediafile
      * @param int $userId
      * @return ActiveDataProvider
      */
-    public function searchByUser($params, $userId)
+    public function searchByUser($params, $userId, $type)
     {
         $query = self::find()->orderBy('created_at DESC');
+        
+        if($type) {
+        	$query->filterWhere(['like', 'type', $type]);
+        }
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

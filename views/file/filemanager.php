@@ -25,18 +25,19 @@ $this->params['moduleBundle'] = FilemanagerAsset::register($this);
         'layout' => $searchForm . '<div class="items">{items}</div>{pager}',
         'itemOptions' => ['class' => 'item'],
         'itemView' => function ($model, $key, $index, $widget) {
-                    return Html::a(
-                        Html::img($model->getDefaultThumbUrl($this->params['moduleBundle']->baseUrl))
-                        . '<span class="checked glyphicon glyphicon-check"></span>',
-                        '#mediafile',
-                        ['data-key' => $key]
-                    );
+        return Html::a((Yii::$app->request->get('type') == 'video') ?
+        		'<video src="'.Url::base().$model->url.'" style="max-width:150px;max-height:150px"></video>' :
+        		Html::img($model->getDefaultThumbUrl($this->params['moduleBundle']->baseUrl))
+        		. '<span class="checked glyphicon glyphicon-check"></span>',
+        		'#mediafile',
+        		['data-key' => $key]
+        		);
             },
     ]) ?>
 
     <div class="dashboard">
         <p><?= Html::a('<span class="glyphicon glyphicon-upload"></span> ' . Module::t('main', 'Upload manager'),
-                ['file/uploadmanager'], ['class' => 'btn btn-default']) ?></p>
+                ['file/uploadmanager', 'type'=>Yii::$app->request->get('type')], ['class' => 'btn btn-default']) ?></p>
         <div id="fileinfo">
 
         </div>

@@ -130,6 +130,8 @@ class FileInput extends InputWidget
         $this->resetButtonOptions['role'] = 'clear-input';
         $this->resetButtonOptions['data-clear-element-id'] = $this->options['id'];
         $this->resetButtonOptions['data-image-container'] = $this->imageContainer;
+        
+        $this->frameSrc = array_merge($this->frameSrc, ['type'=>$this->type]);
     }
 
     /**
